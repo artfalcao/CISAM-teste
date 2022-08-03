@@ -13,8 +13,12 @@ app.engine('hbs', hbs.engine({
 
 app.set('view engine', 'hbs')
 
-/* Configurações de Rotas */
+app.use(express.static('public'))
 
+/* Configurações de Rotas */
+app.get('/', (req, res) => {
+    res.render('index')
+})
 
 
 /* Inicialização do Servidor */
