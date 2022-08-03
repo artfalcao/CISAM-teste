@@ -24,7 +24,18 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 //Página Principal - Pacientes
 app.get('/', (req, res) => {
-    res.render('index', {NavActivePac: true})
+    Paciente.findAll().then((valores) => {
+        if (valores.length > 0) {
+            res.render('index', {NavActivePac:true, table: true, pacientes: valores.map(valores => valores.toJSON()) } )
+        } else {
+            res.render('index', {NavActivePac:true, table: false} )
+        }
+        
+    }).catch((err) => {
+        console.log(`Houve um problema: ${err}`)
+    })
+    
+    //res.render('index', {NavActivePac: true})
 })
 
 //Página de Relatórios

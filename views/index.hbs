@@ -1,5 +1,6 @@
 <div class="p-2 rounded mt-3 ms-5 me-5">
     <h2>Pacientes</h2>
+    {{#if table}}
     <table class="table table-striped mt-3">
         <thead>
             <tr>
@@ -10,10 +11,11 @@
             </tr>
         </thead>
         <tbody>
+            {{#each pacientes}}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <th scope="row">{{prontuario}}</th>
+                <td>{{nome}}</td>
+                <td>{{cpf}}</td>
                 <td>
                     <div class="row">
                         <div class="col-6 col-md-3">
@@ -24,8 +26,16 @@
                     </div>
                 </td>
             </tr>
+            {{/each}}
             
         </tbody>
     </table>
+    {{else}}
+    <div class="card mt-4">
+        <div class="card-body">
+          Nenhum dado encontrado!
+        </div>
+      </div>
+    {{/if}}
 
 </div>

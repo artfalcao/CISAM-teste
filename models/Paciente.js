@@ -2,7 +2,7 @@ const db = require('./db')
 
 const Paciente = db.sequelize.define('paciente', {
     cpf: {
-        type: db.Sequelize.CHAR(11),
+        type: db.Sequelize.CHAR(14),
         allowNull: false,
         primaryKey: true
     },
@@ -11,7 +11,7 @@ const Paciente = db.sequelize.define('paciente', {
         allowNull: false
     },
     prontuario:{
-        type: db.Sequelize.CHAR(20),
+        type: db.Sequelize.CHAR(11),
         allowNull: false
     }
 }) 

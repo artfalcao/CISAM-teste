@@ -11,3 +11,11 @@ const sequelize = new Sequelize('cisam', 'root', '', {
 })
 
 module.exports = {Sequelize, sequelize}
+
+/*
+sequelize.authenticate().then(function() {
+    console.log('Conectado com Sucesso com o BD!')
+}).catch(function(err) {
+    console.log('Falha ao acessar o BD:'+ err)
+})
+*/
