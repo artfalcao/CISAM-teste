@@ -1,10 +1,17 @@
 //imports
 const express = require('express')
 const app = express()
+const hbs = require('express-handlebars')
 
 /* Configurações da Aplicação */
 
+//Configuração do Handlebars
+app.engine('hbs', hbs.engine({
+    extname: 'hbs', 
+    defaultLayout: 'main'
+}))
 
+app.set('view engine', 'hbs')
 
 /* Configurações de Rotas */
 
