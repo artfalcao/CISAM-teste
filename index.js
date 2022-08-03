@@ -17,7 +17,15 @@ app.use(express.static('public'))
 
 /* Configurações de Rotas */
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', {NavActivePac: true})
+})
+
+app.get('/relatorios', (req, res) => {
+    res.render('relatorios', {NavActiveRel: true})
+})
+
+app.get('/cadastros', (req, res) => {
+    res.render('cadastros', {NavActiveCad: true})
 })
 
 
