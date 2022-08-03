@@ -38,6 +38,10 @@ app.get('/', (req, res) => {
     //res.render('index', {NavActivePac: true})
 })
 
+app.get('/editar', (req, res) => {
+    res.render('editar')
+})
+
 //Página de Relatórios
 app.get('/relatorios', (req, res) => {
     res.render('relatorios', {NavActiveRel: true})
