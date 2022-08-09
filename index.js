@@ -52,6 +52,16 @@ app.post('/editar', (req, res) => {
     })  
 })
 
+app.post('/paciente-resumo', (req, res) => {
+    let cpf = req.body.cpf
+    Paciente.findByPk(cpf).then((dados) => {
+        return res.render('paciente-resumo', {error: false, prontuario: dados.prontuario, nome: dados.nome, cpf: dados.cpf})
+    }).catch((err) => {
+        console.log(err)
+        return res.render('paciente-resumo', {error: true, problema: 'Não é possível acessar esse registro!'})
+    })
+})
+
 //Página de Relatórios
 app.get('/relatorios', (req, res) => {
     res.render('relatorios', {NavActiveRel: true})
