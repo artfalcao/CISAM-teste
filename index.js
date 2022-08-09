@@ -42,6 +42,16 @@ app.get('/editar', (req, res) => {
     res.render('editar')
 })
 
+app.post('/editar', (req, res) => {
+    let cpf = req.body.cpf
+    Paciente.findByPk(cpf).then((dados) => {
+        return res.render('editar', {error: false, prontuario: dados.prontuario, nome: dados.nome, cpf: dados.cpf})
+    }).catch((err) => {
+        console.log(err)
+        return res.render('editar', {error: true, problema: 'Não é possível editar esse registro!'})
+    })  
+})
+
 //Página de Relatórios
 app.get('/relatorios', (req, res) => {
     res.render('relatorios', {NavActiveRel: true})

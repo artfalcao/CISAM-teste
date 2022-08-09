@@ -1,11 +1,12 @@
+{{#unless error}}
 <div class="container">
     <h4 class="text-center mb-4">INFORMAÇÕES DO PACIENTE</h4>
     <form method="post" action="/update">
         <div class="row g-3 mb-3">
             <div class="col-sm-6">
                 <label for="Nome" class="form-label fw-bold">Nome</label>
-                <input type="hidden" value="" name="id">
-                <input  value="" type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu Nome" required>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="{{nome}}" type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu Nome" required>
             </div>
             <div class="col-sm-6">
                 <label for="exampleFormControlInput1" class="form-label fw-bold">Nome da Mãe</label>
@@ -62,3 +63,12 @@
 
         
 </div>
+
+{{else}}
+<div class="card bg-danger p-4 mt-5 text-white">
+  <div class="card-body fw-bold text-center">
+    Houve um problema: {{problema}}
+  </div>
+  
+</div>
+{{/unless}}
