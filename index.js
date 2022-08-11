@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 
 /* Configurações da Aplicação */
 const Paciente = require('./models/Paciente')
+const Medico = require('./models/Medico')
 
 //Configuração do Handlebars
 app.engine('hbs', hbs.engine({

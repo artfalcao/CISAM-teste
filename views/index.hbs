@@ -26,11 +26,52 @@
                         </div>
                         <div class="col-6 col-md-4">
                             <button class="btn btn-danger w-100">Deletar</button>
-                        </div> 
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="marcar_{{cpf}}"><img src="/img/consulta-marcar.svg"></button>
+                        </div>  
                     </div>
                 </td>
                 
             </tr>
+            <!-- Modal Consulta-->
+            <div class="modal-dialog modal-dialog-centered" id="marcar_{{cpf}}" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">DAFINA A DATA DE CONSULTA</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            TODO: MARCAR CONSULTAS
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-success" data-bs-target="confirmação_{{cpf}}" data-bs-toggle="modal">Confirmar Consulta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Consulta Confirmação-->
+            <div class="modal fade" id="confirmação_{{cpf}}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel2">CONFIRMAÇÃO</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            CONSULTA CONFIRMADA COM SUCESSO!
+                            E-mail enviado para {{nome}}.
+                            <img src="/img/consulta-confirmada.svg">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirmado</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {{/each}}
             
         </tbody>
