@@ -4,13 +4,18 @@ const app = express()
 const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
+
+
 /* Configurações da Aplicação */
 const Paciente = require('./models/Paciente')
+const Usuario = require('./models/Usuario')
 
 //Configuração do Handlebars
+
 app.engine('hbs', hbs.engine({
     extname: 'hbs', 
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    
 }))
 
 app.set('view engine', 'hbs')
@@ -34,8 +39,6 @@ app.get('/', (req, res) => {
     }).catch((err) => {
         console.log(`Houve um problema: ${err}`)
     })
-    
-    //res.render('index', {NavActivePac: true})
 })
 
 app.get('/editar', (req, res) => {
@@ -45,7 +48,7 @@ app.get('/editar', (req, res) => {
 app.post('/editar', (req, res) => {
     let cpf = req.body.cpf
     Paciente.findByPk(cpf).then((dados) => {
-        return res.render('editar', {error: false, prontuario: dados.prontuario, nome: dados.nome, cpf: dados.cpf})
+        return res.render('editar', {error: false, NavActivePac:true, NavActiveDadosCad: true, prontuario: dados.prontuario, nome: dados.nome, cpf: dados.cpf})
     }).catch((err) => {
         console.log(err)
         return res.render('editar', {error: true, problema: 'Não é possível editar esse registro!'})
@@ -55,7 +58,7 @@ app.post('/editar', (req, res) => {
 app.post('/paciente-resumo', (req, res) => {
     let cpf = req.body.cpf
     Paciente.findByPk(cpf).then((dados) => {
-        return res.render('paciente-resumo', {error: false, prontuario: dados.prontuario, nome: dados.nome, cpf: dados.cpf})
+        return res.render('paciente-resumo', {error: false, NavActivePac:true, NavActiveResumo: true, prontuario: dados.prontuario, nome: dados.nome, cpf: dados.cpf})
     }).catch((err) => {
         console.log(err)
         return res.render('paciente-resumo', {error: true, problema: 'Não é possível acessar esse registro!'})
@@ -78,3 +81,4 @@ app.get('/cadastros', (req, res) => {
 app.listen(3000, () => {
     console.log('Aplicação rodando na porta 3000!')
 })
+
