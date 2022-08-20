@@ -1,15 +1,46 @@
+{{#unless error}}
 <div class="container text-center">
-    <form action="/paciente-resumo" method="get">
+    <form action="/paciente-resumo" method="post">
         <div class="row">
-            <div class="col border"><p class="fw-bold">Nome</p></div>
-            <div class="col border"><p class="fw-bold">Prontuário</p></div>
-            <div class="col border"><p class="fw-bold">CPF</p></div>
+            <div class="col"><p class="fw-bold">{{nome}}</p></div>
+            <div class="col"><p class="fw-bold">Prontuário</p></div>
+            <div class="col"><p class="fw-bold">CPF</p></div>
+            <div class="col"><button type="button" class="btn btn-success" style="--bs-btn-padding-x: .25rem;">MARCAR CONSULTA</button></div>
+            
         </div>
         <div class="row">
-            <div class="col border"><p>{{nome}}</p></div>
-            <div class="col border"><p>{{prontuario}}</p></div>
-            <div class="col border"><p>{{cpf}}</p></div>
+            <div class="col"></div>
+            <div class="col"><p>{{prontuario}}</p></div>
+            <div class="col"><p>{{cpf}}</p></div>
+            <div class="col"><button type="button" class="btn btn-primary col-7" style="--bs-btn-padding-x: .25rem;">PRONTUÁRIO</button></div>
         </div>
     </form>
 
+    <div class="row">
+         <div class="col-6 col-md-3">
+            <form action="/editar" method="post">
+                <input type="hidden" name="cpf" value="{{cpf}}">
+                <button class="btn btn-danger w-60">DADOS CADASTRAIS</button>
+            </form>
+        </div> 
+
+        <div class="col-6 col-md-2">
+            <form action="/paciente-resumo" method="post">
+                <input type="hidden" name="cpf" value="{{cpf}}">
+                <button class="btn btn-info w-60">RESUMO</button>
+            </form>
+        </div>
+    </div>
+
 </div>
+
+{{else}}
+<div class="card bg-danger p-4 mt-5 text-white">
+  <div class="card-body fw-bold text-center">
+    Houve um problema: {{problema}}
+  </div>
+  
+</div>
+{{/unless}}
+
+
