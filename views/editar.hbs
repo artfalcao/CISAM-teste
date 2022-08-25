@@ -31,13 +31,12 @@
                 </form>
             </div>
         </div>
-
-    
-
+        <hr class="my-4">
 </div>
+
 <div class="container mt-3">
     <h4 class="text-center mb-4">INFORMAÇÕES DO PACIENTE</h4>
-    <form action="update" method="post">
+    <form action="/update" method="post">
         <div class="row g-3 mb-3">
             <div class="col-sm-6">
                 <label for="Nome" class="form-label fw-bold">Nome</label>
@@ -93,12 +92,86 @@
         </div>
         
         <hr class="my-4">
+    </form>        
+</div>
+
+<div class="container mt-3">
+    <h4 class="text-center mb-4">ENDEREÇO</h4>
+    <form action="/update" method="post">
+        <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label for="cep" class="form-label fw-bold">CEP</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="{{cep}}" type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" required>
+            </div>
+            <div class="col-sm-6">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Rua</label>
+                <input value="{{rua}}" type="text" class="form-control" id="rua" name="rua" placeholder="Digite o nome da Rua" required>
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label for="numero" class="form-label fw-bold">Número</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="{{numero}}" type="text" class="form-control" id="numero" name="numero" placeholder="" required>
+            </div>
+            <div class="col-sm-6">
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Cidade</label>
+                <input value="{{cidade}}" type="text" class="form-control" id="cidade" name="cidade" required>
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label for="bairro" class="form-label fw-bold">Bairro</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="{{bairro}}" type="text" class="form-control" id="bairro" name="bairro" placeholder="Digite o nome do Bairro" required>
+            </div>
+            <div class="col-sm-6">
+                <label for="complemento" class="form-label fw-bold">Complemento</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="{{complemento}}" type="text" class="form-control" id="complemento" name="complemento" placeholder="" required>
+            </div>
+            
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label for="estado" class="form-label fw-bold">Estado</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input value="{{uf}}" type="text" class="form-control" id="estado" name="estado" placeholder="Digite o Estado" required>
+            </div>
+            <hr class="my-4">
+    </form>
+</div>
+
+<div class="container mt-3">
+    <h4 class="text-center mb-4">CARTEIRA DO PACIENTE</h4>
+    <form action="/update" method="post">
+        <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label for="convenio" class="form-label fw-bold">Convênio</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="SUS" type="text" class="form-control" id="convenio" name="convenio" required>
+            </div>
+            <div class="col-sm-6">
+                <label for="numeroSUS" class="form-label fw-bold">Número Carteira</label>
+                <input value="{{numeroSUS}}" type="text" class="form-control" id="numeroSUS" name="numeroSUS" required>
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+                <label for="validade" class="form-label fw-bold">Validade</label>
+                <input type="hidden" value="{{cpf}}" name="cpf">
+                <input  value="20/08/2022" type="text" class="form-control" id="validade" name="validade" placeholder="" required>
+            </div>
+        </div>
+        <hr class="my-4">
 
         <button class="w-30 btn btn-primary btn-lg" type="submit">SALVAR</button>
-    </form>
+        <button class="w-30 btn-lg btn btn-outline-danger" data-bs-dismiss="modal" type="button">Cancelar</button>
+    </form>  
     
 
-        
+    
 </div>
 
 {{else}}
