@@ -80,60 +80,58 @@ app.post('/editar', (req, res) => {
             dataNasc: dados.dataNasc,
             sexo: dados.sexo,
             tel: dados.telefone,
-            email: dados.email
+            email: dados.email,
+            cep: dados.cep,
+            rua: dados.logradouro,
+            numero: dados.numero,
+            cidade: dados.cidade,
+            bairro: dados.bairro,
+            complemento: dados.complemento,
+            uf: dados.uf,
+            numeroSUS: dados.numeroSUS
         })
     }).catch((err) => {
         console.log(err)
         return res.render('editar', {error: true, problema: 'Não é possível editar esse registro!'})
     })  
 })
-
+/*
 app.post('/update', (req, res) => {
     //Valores vindos do formulário
     let nome = req.body.nome
     let email = req.body.email
+    let prontuario = req.body.prontuario
+    let nomeMae = req.body.nomeMae
+    let cpf = req.body.cpf
+    let dataNasc = req.body.dataNasc
+    let sexo = req.body.sexo
+    let tel = req.body.telefone
+    let cep = req.body.cep
+    let rua = req.body.logradouro
+    let numero = req.body.numero
+    let cidade = req.body.cidade
+    let bairro = req.body.bairro
+    let complemento = req.body.complemento
+    let uf = req.body.uf
+    let numeroSUS = req.body.numeroSUS
 
-    //Array que vai conter os erros
-    const erros = []
-
-    //Validação dos Campos
-    
-    /* Remover espaços em branco */
-    nome = nome.trim()
-    email.trim()
-
-    /* Limpar caracteres especiais */
-    nome = nome.replace(/[^A-zÀ-ú\s]/gi, '')
-    nome = nome.trim()
-
-    /* Verificar se está vazio ou não definido */
-    if (nome == '' || typeof nome == undefined || nome == null) {
-        erros.push({mensagem: "Campo nome não pode ser vazio!"})
-    }
-
-    /* Verificar se campo nome é válido (apenas letras)*/
-    if(!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\s]+$/.test(nome)) {
-        erros.push({mensagem:"Nome Inválido!"})
-   }
-   
-   /* Verificar se está vazio ou não definido */
-    if (email == '' || typeof email == undefined || email == null) {
-        erros.push({mensagem: "Campo email não pode ser vazio!"})
-    }
-
-    /* Verificar se campo email é válido*/
-    if (/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i.test(email)) {
-        erros.push({mensagem:"Campo email Inválido!"})
-    }
-
-    if(erros.length > 0) {
-        return res.status(400).send({status: 400, erro: erros})
-    }
-
-    //Sucesso (Nenhum Erro) - Atualizar registro no BD
     Paciente.update({
         nome: nome,
-        email: email.toLowerCase()
+        email: email,
+        prontuario: prontuario,
+        nomeMae: nomeMae,
+        cpf : cpf,
+        dataNasc : dataNasc,
+        sexo: sexo,
+        tel : tel,
+        cep : cep,
+        rua : rua,
+        numero : numero,
+        cidade : cidade,
+        bairro : bairro,
+        complemento : complemento,
+        uf : uf,
+        numeroSUS : numeroSUS
     },
     {
         where: {
@@ -145,7 +143,7 @@ app.post('/update', (req, res) => {
     }).catch((err) => {
         console.log(err)
     })
-})
+})*/
 
 
 //Página de Relatórios
