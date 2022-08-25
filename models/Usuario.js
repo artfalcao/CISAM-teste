@@ -2,7 +2,7 @@ const db = require('./db')
 
 const Usuario = db.sequelize.define('usuario', {
     cpf_usuario: {
-        type: db.Sequelize.CHAR(11),
+        type: db.Sequelize.STRING(11),
         allowNull: false,
         primaryKey: true
     },
@@ -20,7 +20,7 @@ const Usuario = db.sequelize.define('usuario', {
         allowNull: false
     }, 
 	telefone: {
-        type: db.Sequelize.CHAR(11),
+        type: db.Sequelize.STRING(11),
         allowNull: false
     },
 	codCategoria: {
@@ -32,7 +32,7 @@ const Usuario = db.sequelize.define('usuario', {
         allowNull: false
     },
 	cep: {
-        type: db.Sequelize.CHAR(9),
+        type: db.Sequelize.STRING(9),
         allowNull: false
     },
 	logradouro: {
@@ -56,7 +56,7 @@ const Usuario = db.sequelize.define('usuario', {
         allowNull: false
     },
     uf: {
-        type: db.Sequelize.CHAR(2),
+        type: db.Sequelize.STRING(2),
         allowNull: false
     }
 }) 

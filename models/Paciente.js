@@ -2,16 +2,16 @@ const db = require('./db')
 
 const Paciente = db.sequelize.define('paciente', {
     cpf: {
-        type: db.Sequelize.CHAR(14),
+        type: db.Sequelize.STRING(14),
         allowNull: false,
         primaryKey: true
     },
     termoLGPD: {
-        type: db.Sequelize.CHAR(3),
+        type: db.Sequelize.STRING(3),
         allowNull: false
      },     
     prontuario:{
-        type: db.Sequelize.CHAR(11),
+        type: db.Sequelize.STRING(11),
         allowNull: false
     },
     nome:{
@@ -23,7 +23,7 @@ const Paciente = db.sequelize.define('paciente', {
         allowNull: true
     },
     telefone: {
-        type: db.Sequelize.CHAR(11),
+        type: db.Sequelize.STRING(11),
         allowNull: false
     }, 
     dataNasc: {
@@ -31,7 +31,7 @@ const Paciente = db.sequelize.define('paciente', {
         allowNull: false
     },
     sexo: {
-        type: db.Sequelize.CHAR(1),
+        type: db.Sequelize.STRING(1),
         allowNull: false
     },
     nomeMae: {
@@ -43,7 +43,7 @@ const Paciente = db.sequelize.define('paciente', {
         allowNull: false
     },
 	 cep: {
-        type: db.Sequelize.CHAR(9),
+        type: db.Sequelize.STRING(9),
         allowNull: false
      },
 	 logradouro: {
