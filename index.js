@@ -145,6 +145,34 @@ app.post('/update', (req, res) => {
     })
 })*/
 
+app.post('/consulta',(req,res)=>{
+    //VALORES VINDOS DO FORMULARIO
+    let cpf = req.body.cpf;
+    let nome = Usuario.findByPk(cpf).nome;
+    // Usuario.findByPk(id).then((dados)=>{
+    //     nome = dados.nome
+    // })
+    let dia = req.body.dia;
+    let mes = req.body.mes;
+    let ano = req.body.ano;
+    let hora = req.body.hora;
+    let minuto = req.body.minuto;
+    let dataSolicitacao = new Date();
+    // let dataConsulta = dia + '/' + mes + '/' + ano + ' ' + hora
+    let dataConsulta = new Date(ano, mes, dia, hora, minuto);
+    let queixaPaciente = req.body.queixaPaciente;
+    
+        Consulta.create({
+            dataSolicitacao: dataSolicitacao,
+            dataConsulta:dataConsulta,
+            queixaPaciente:queixaPaciente
+        }).then(function(){
+            console.log('Cadastrado com sucesso!');
+            return res.redirect('/users');
+        }).catch(function(erro){
+            console.log(`Ops, houve um erro: ${erro}`);
+        })
+})
 
 //Página de Relatórios
 app.get('/relatorios', (req, res) => {

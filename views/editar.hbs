@@ -5,7 +5,9 @@
             <div class="col"><p class="fw-bold">{{nome}}</p></div>
             <div class="col"><p class="fw-bold">Prontuário</p></div>
             <div class="col"><p class="fw-bold">CPF</p></div>
-            <div class="col"><button type="button" class="btn btn-success" style="--bs-btn-padding-x: .25rem;">MARCAR CONSULTA</button></div>
+            <div class="col">
+                <button type="button" class="btn btn-success col-7" style="--bs-btn-padding-x: .25rem;" data-bs-toggle="modal" data-bs-target="#consulta_{{cpf}}">MARCAR CONSULTA</button>
+            </div>
             
         </div>
         <div class="row">
@@ -143,7 +145,7 @@
     </form>
 </div>
 
-<div class="container mt-3">
+<div class="container mt-3 pb-4">
     <h4 class="text-center mb-4">CARTEIRA DO PACIENTE</h4>
     <form action="/update" method="post">
         <div class="row g-3 mb-3">
@@ -172,6 +174,67 @@
     
 
     
+</div>
+
+<!-- Modal Consulta-->
+<div class="modal" id="consulta_{{cpf}}" tabindex="-1" aria-labelledby="Tela de Consulta"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Marcar Consulta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row g-2">
+                <form class="row g-3 needs-validation" novalidate action="/consulta" method="post">
+                    <div class="col-md-4">
+                        <label for="dia" class="form-label">Dia</label>
+                        <input type="number" class="form-control" id="dia" name="dia" required min="1" max="31">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="mes" class="form-label">Mês</label>
+                        <select class="form-select" id="mes" name="mes" aria-label="Selecionar Mês">
+                            <option value="Janeiro">Janeiro</option>
+                            <option value="Fevereiro">Fevereiro</option>
+                            <option value="Março">Março</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Maio">Maio</option>
+                            <option value="Junho">Junho</option>
+                            <option value="Julho">Julho</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Setembro">Setembro</option>
+                            <option value="Outubro">Outubro</option>
+                            <option value="Novembro">Novembro</option>
+                            <option value="Dezembro">Dezembro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ano" class="form-label">Ano</label>
+                        <div class="input-group has-validation">
+                            <input type="number" class="form-control" id="ano" name="ano" aria-describedby="inputGroupPrepend" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="hora" class="form-label">Hora</label>
+                        <input type="number" class="form-control" id="hora" name="hora" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="minuto" class="form-label">Minuto</label>
+                        <input type="number" class="form-control" id="minuto" name="minuto" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="queixaPaciente" class="form-label">Queixa do Paciente</label>
+                        <textarea class="form-control" id="queixaPaciente" name="queixaPaciente" required>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="cpf" value="{{cpf}}">
+                        <button class="btn btn-primary" type="submit" data-bs-target="#confirmação_{{cpf}}">Confirmar Consulta</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 {{else}}
