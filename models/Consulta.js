@@ -14,6 +14,9 @@ const Consulta = db.sequelize.define('consultas', {
     dataConsulta: {
         type: db.Sequelize.DATE,
         allowNull: false
+        // get: function(){
+        //     return this.getDataValue('dataConsulta').toLocaleString('en-GB', {timeZone: 'UTC'});
+        // }
     },
     queixaPaciente: {
         type: db.Sequelize.TEXT,
