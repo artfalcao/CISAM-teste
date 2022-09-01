@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 // In a real app, you should keep the database connection URL as an environment variable.
 // But for this example, we will just use a local DB.
 // const sequelize = new Sequelize(process.env.DB_CONNECTION_URL);
-const sequelize = new Sequelize('cisam', 'root', '', {
+const sequelize = new Sequelize('cisam', 'root', 'root', {
     host: "127.0.0.1",
     dialect: 'mysql',
     define: {

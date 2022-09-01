@@ -18,22 +18,22 @@
         </div>
     </form>
 
-        <div class="row">
-            <div class="col-6 col-md-3">
+        <div class="tabEditProfileContainer" id="tabEditProfileContainer">
+            <div class="containerItem">
                 <form action="/editar" method="post">
                     <input type="hidden" name="cpf" value="{{cpf}}">
-                    <button class="btn btn-danger w-60">DADOS CADASTRAIS</button>
+                    <button class="tabEditProfile activeItemEditProfile">DADOS CADASTRAIS</button>
                 </form>
             </div> 
 
-            <div class="col-6 col-md-2">
+            <div class="containerItemResume">
                 <form action="/paciente-resumo" method="post">
                     <input type="hidden" name="cpf" value="{{cpf}}">
-                    <button class="btn btn-info w-60">RESUMO</button>
+                    <button class="tabEditProfile">RESUMO</button>
                 </form>
             </div>
         </div>
-        <hr class="my-4">
+        <hr class="my-4 bottomLine">
 </div>
 
 <div class="container mt-3">
@@ -167,9 +167,12 @@
             </div>
         </div>
         <hr class="my-4">
+        <div class="bottomEditProfile">
+            <button class="w-30 btn btn-primary btn-lg .btnBottomEditProfile" type="submit">SALVAR</button>
+            <button class="w-30 btn-lg btn btn-outline-danger" data-bs-dismiss="modal" type="button">Cancelar</button>
 
-        <button class="w-30 btn btn-primary btn-lg" type="submit">SALVAR</button>
-        <button class="w-30 btn-lg btn btn-outline-danger" data-bs-dismiss="modal" type="button">Cancelar</button>
+        </div>
+        
     </form>  
     
 
