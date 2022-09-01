@@ -12,6 +12,7 @@ const Usuario = require('./models/Usuario')
 const Especialidade_Medica = require('./models/Especialidade_Medica')
 const Tipo_Atendimento = require('./models/Tipo_Atendimento')
 const Consulta = require('./models/Consulta')
+const { Router } = require('express')
 
 Usuario.hasMany(Consulta)
 Consulta.belongsTo(Usuario)
@@ -154,6 +155,11 @@ app.get('/relatorios', (req, res) => {
 //Página de Cadastros
 app.get('/cadastros', (req, res) => {
     res.render('cadastros', {NavActiveCad: true})
+})
+
+//Página de Cadastros
+app.get('/login', (req,res) => {
+    res.render('login', {NavActiveCad: true})
 })
 
 

@@ -16,22 +16,22 @@
         </div>
     </form>
 
-    <div class="row">
-         <div class="col-6 col-md-3">
+    <div class="tabEditProfileContainer">
+         <div class="containerItem">
             <form action="/editar" method="post">
                 <input type="hidden" name="cpf" value="{{cpf}}">
-                <button class="btn btn-danger w-60">DADOS CADASTRAIS</button>
+                <button class="tabEditProfile">DADOS CADASTRAIS</button>
             </form>
         </div> 
 
-        <div class="col-6 col-md-2">
+        <div class="containerItemResume">
             <form action="/paciente-resumo" method="post">
                 <input type="hidden" name="cpf" value="{{cpf}}">
-                <button class="btn btn-info w-60">RESUMO</button>
+                <button class="tabEditProfile activeItemEditProfile">RESUMO</button>
             </form>
         </div>
     </div>
-
+    <hr class="my-4 bottomLine">
 </div>
 
 {{else}}
