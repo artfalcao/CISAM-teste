@@ -146,6 +146,36 @@ app.post('/update', (req, res) => {
     })
 })*/
 
+app.post('/marcar-consulta', (req, res) => {
+    let cpf = req.body.cpf
+    Paciente.findByPk(cpf).then((dados) => {
+        return res.render('marcar-consulta', 
+        {error: false, 
+            NavActivePac:true, 
+            NavActiveDadosCad: true,
+            prontuario: dados.prontuario, 
+            nomeMae: dados.nomeMae, 
+            nome: dados.nome, 
+            cpf: dados.cpf,
+            dataNasc: dados.dataNasc,
+            sexo: dados.sexo,
+            tel: dados.telefone,
+            email: dados.email,
+            cep: dados.cep,
+            rua: dados.logradouro,
+            numero: dados.numero,
+            cidade: dados.cidade,
+            bairro: dados.bairro,
+            complemento: dados.complemento,
+            uf: dados.uf,
+            numeroSUS: dados.numeroSUS
+        })
+    }).catch((err) => {
+        console.log(err)
+        return res.render('marcar-consulta', {error: true, problema: 'Não é possível marcar consulta.'})
+    })  
+})
+
 app.post('/consulta',(req,res)=>{
     //VALORES VINDOS DO FORMULARIO
     let cpf = req.body.cpf;
