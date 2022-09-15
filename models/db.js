@@ -1,19 +1,33 @@
+const dbConfig = require("../config/db.config");
 const Sequelize = require('sequelize')
 //const { applyExtraSetup } = require('./extra-setup')
 
 // In a real app, you should keep the database connection URL as an environment variable.
 // But for this example, we will just use a local DB.
 // const sequelize = new Sequelize(process.env.DB_CONNECTION_URL);
-const sequelize = new Sequelize('cisam', 'root', 'root', {
-    host: "127.0.0.1",
-    dialect: 'mysql',
-    define: {
-        charset: 'utf8',
-        collate: 'utf8_general_ci',
-        timestamps: true
-    },
-    logging: false
-})
+// const sequelize = new Sequelize('cisam', 'root', 'root', {
+//     host: "127.0.0.1",
+//     dialect: 'mysql',
+//     define: {
+//         charset: 'utf8',
+//         collate: 'utf8_general_ci',
+//         timestamps: true
+//     },
+//     logging: false
+// })
+
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+    host: dbConfig.HOST,
+    dialect: dbConfig.dialect,
+    port: dbConfig.port,
+    operatorsAliases: false,
+    pool: {
+      max: dbConfig.pool.max,
+      min: dbConfig.pool.min,
+      acquire: dbConfig.pool.acquire,
+      idle: dbConfig.pool.idle
+    }
+});
 /*
 const modelDefiners = [
 	require('./Paciente'),

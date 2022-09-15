@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+require("dotenv").config();
 
 
 /* Configurações da Aplicação */
@@ -222,7 +223,8 @@ app.get('/login', (req,res) => {
 
 
 /* Inicialização do Servidor */
-app.listen(3000, () => {
-    console.log('Aplicação rodando na porta 3000!')
+const PORT = process.env.NODE_LOCAL_PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Aplicação rodando na porta ${PORT}!`)
 })
 
